@@ -5,7 +5,8 @@ import { UserCardContainer, Avatar } from "./styles";
 type UserCardProps = {
   userData: GitHubUser;
 };
-export default function UserCard({ userData }: UserCardProps) {
+
+export const UserCard: React.FC<UserCardProps> = ({ userData }) => {
   return (
     <UserCardContainer>
       <Avatar
@@ -14,10 +15,15 @@ export default function UserCard({ userData }: UserCardProps) {
         }}
       />
       <View>
+        <Text>id: {userData.id}</Text>
         <Text>{userData.name}</Text>
         <Text>{userData.login}</Text>
         <Text>{userData.location}</Text>
+        <View>
+          <Text>Seguidores: {userData.followers}</Text>
+          <Text>Repositorios públicos: {userData.public_repos}</Text>
+        </View>
       </View>
     </UserCardContainer>
   );
-}
+};
