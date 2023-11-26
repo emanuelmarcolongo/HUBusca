@@ -1,11 +1,5 @@
 import styled from "styled-components";
-import {
-  View,
-  TextInput,
-  TouchableOpacity,
-  Text,
-  Keyboard,
-} from "react-native";
+import { View, TextInput, TouchableOpacity, Text } from "react-native";
 
 export const SearchContainer = styled(View)`
   margin: 16px;

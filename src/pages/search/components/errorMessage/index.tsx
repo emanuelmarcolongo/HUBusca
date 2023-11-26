@@ -1,4 +1,3 @@
-import { View, Text } from "react-native";
 import { ErrorContainer, ErrorMessageText } from "./styles";
 
 type ErrorMessageProps = {
