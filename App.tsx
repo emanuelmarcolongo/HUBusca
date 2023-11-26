@@ -10,21 +10,13 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
-function Tabs() {
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Search" component={SearchPage}></Tab.Screen>
-      <Tab.Screen name="History" component={HistoryPage}></Tab.Screen>
-    </Tab.Navigator>
-  );
-}
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Search" component={Tabs} />
-        <Stack.Screen name="History" component={HistoryPage} />
-      </Stack.Navigator>
+      <Tab.Navigator>
+        <Tab.Screen name="Search" component={SearchPage}></Tab.Screen>
+        <Tab.Screen name="History" component={HistoryPage}></Tab.Screen>
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
