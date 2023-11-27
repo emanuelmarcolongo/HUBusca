@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { View, Image } from "react-native";
+import { View, Image, Text } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 export const UserCardContainer = styled(TouchableOpacity)`
@@ -20,4 +20,14 @@ export const Avatar = styled(Image)`
   height: 100px;
   border-radius: 50px;
   margin-right: 15px;
+`;
+
+export const UserInfoContainer = styled(View)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const InfoText = styled(Text)`
+  margin-left: 10px;
 `;

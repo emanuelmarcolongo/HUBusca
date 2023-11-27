@@ -1,6 +1,12 @@
-import { Text, Linking } from "react-native";
-import { RepoCardContainer, Title } from "./styles";
+import { Text, Linking, View } from "react-native";
+import {
+  RepoCardContainer,
+  RepoInfoContainer,
+  Title,
+  RepoTitleInfo,
+} from "./styles";
 import dateFormat from "../../../../../utils/date format";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 type RepoCardProps = {
   name: string;
@@ -30,11 +36,86 @@ export default function RepoCard({
 
   return (
     <RepoCardContainer onPress={githubRedirect}>
-      <Title>{name}</Title>
-      <Text>{language}</Text>
-      <Text>{description}</Text>
-      <Text>criado em: {createdAt}</Text>
-      <Text>ultimo push: {pushedAt}</Text>
+      <RepoInfoContainer>
+        <RepoTitleInfo>
+          <FontAwesome5
+            style={{ marginRight: 5 }}
+            name="laptop"
+            color={"#000"}
+            size={12}
+          />
+          <Text>Repositorio</Text>
+        </RepoTitleInfo>
+        <Title>{name}</Title>
+      </RepoInfoContainer>
+
+      <RepoInfoContainer>
+        <RepoTitleInfo>
+          <FontAwesome5
+            style={{ marginRight: 5 }}
+            name="book"
+            color={"#000"}
+            size={12}
+          />
+          <Text>Linguagem</Text>
+        </RepoTitleInfo>
+        <Text>{language}</Text>
+      </RepoInfoContainer>
+
+      {description ? (
+        <RepoInfoContainer>
+          <RepoTitleInfo>
+            <FontAwesome5
+              style={{ marginRight: 5 }}
+              name="paperclip"
+              color={"#000"}
+              size={12}
+            />
+            <Text>Descrição</Text>
+          </RepoTitleInfo>
+          <Text>{description}</Text>
+        </RepoInfoContainer>
+      ) : (
+        ""
+      )}
+
+      <RepoInfoContainer>
+        <RepoTitleInfo>
+          <FontAwesome5
+            style={{ marginRight: 5 }}
+            name="calendar-alt"
+            color={"#000"}
+            size={12}
+          />
+          <Text>Criado em</Text>
+        </RepoTitleInfo>
+        <Text>{createdAt}</Text>
+      </RepoInfoContainer>
+
+      <RepoInfoContainer>
+        <RepoTitleInfo>
+          <FontAwesome5
+            style={{ marginRight: 5 }}
+            name="calendar-alt"
+            color={"#000"}
+            size={12}
+          />
+          <Text>Criado em</Text>
+        </RepoTitleInfo>
+        <Text>{createdAt}</Text>
+      </RepoInfoContainer>
+      <RepoInfoContainer>
+        <RepoTitleInfo>
+          <FontAwesome5
+            style={{ marginRight: 5 }}
+            name="clock"
+            color={"#000"}
+            size={12}
+          />
+          <Text>Ultimo push</Text>
+        </RepoTitleInfo>
+        <Text>{pushedAt}</Text>
+      </RepoInfoContainer>
     </RepoCardContainer>
   );
 }

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { View, Image } from "react-native";
+import { View, Image, Text } from "react-native";
 
 export const UserCardContainer = styled(View)`
   background-color: #fff;
@@ -19,4 +19,14 @@ export const Avatar = styled(Image)`
   height: 100px;
   border-radius: 50px;
   margin-right: 15px;
+`;
+
+export const UserInfoContainer = styled(View)`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const InfoText = styled(Text)`
+  margin-left: 10px;
 `;

@@ -7,10 +7,7 @@ import {
   SearchContainer,
   StyledTextInput,
 } from "./styles";
-import {
-  addSearchToHistory,
-  getSearchHistory,
-} from "../../../../../utils/async storage";
+import { addSearchToHistory } from "../../../../../utils/async storage";
 import { GitHubUser } from "../../../../../utils/types/githubUserResponse";
 
 export default function SearchForm({ setUserData, setErrorMessage }: any) {
@@ -34,6 +31,7 @@ export default function SearchForm({ setUserData, setErrorMessage }: any) {
       } else {
         setErrorMessage("Erro desconhecido. Por favor, tente novamente.");
       }
+      Keyboard.dismiss();
     }
   };
 
