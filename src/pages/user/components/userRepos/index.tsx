@@ -1,12 +1,17 @@
-import { View, Text } from "react-native";
+import { View, Text, ActivityIndicator } from "react-native";
 import { fetchGitHubUserRepositories } from "../../services/githubRepositoriesService";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FlatList } from "react-native-gesture-handler";
 import { GitHubUserRepositoriesResponse } from "../../../../../utils/types/githubUserRepositoriesResponse";
 import RepoCard from "../repoCard";
-import { Title, UserRepoContainer } from "./style";
+import {
+  LoadingContainer,
+  Title,
+  UserRepoContainer,
+  NoRepositoryText,
+} from "./style";
 interface UserRepositoriesProps {
-  username?: string;
+  username: string;
   setErrorMessage: any;
 }
 
@@ -17,6 +22,27 @@ export default function UserRepos({
   const [repoInfo, setRepoInfo] = useState<GitHubUserRepositoriesResponse[]>(
     []
   );
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    searchUserRepos();
+  }, []);
+
+  const searchUserRepos = async () => {
+    try {
+      setIsLoading(true);
+      const userRepositoriesInfo = await fetchGitHubUserRepositories(username);
+      setRepoInfo(userRepositoriesInfo);
+    } catch (error) {
+      if (error instanceof Error) {
+        setErrorMessage(error.message);
+      } else {
+        setErrorMessage("Erro desconhecido. Por favor, tente novamente.");
+      }
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   if (!username) {
     return (
@@ -26,40 +52,40 @@ export default function UserRepos({
     );
   }
 
-  const searchUserRepos = async () => {
-    try {
-      const userRepositoriesInfo = await fetchGitHubUserRepositories(username);
-      setRepoInfo(userRepositoriesInfo);
-    } catch (error) {
-      if (error instanceof Error) {
-        setErrorMessage(error.message);
-      } else {
-        setErrorMessage("Erro desconhecido. Por favor, tente novamente.");
-      }
-    }
-  };
-
-  searchUserRepos();
-
+  if (isLoading) {
+    return (
+      <LoadingContainer>
+        <ActivityIndicator size="large" color={"#007bff"} />
+      </LoadingContainer>
+    );
+  }
   return (
     <UserRepoContainer>
       <Title>Repositórios: </Title>
-      <FlatList
-        data={repoInfo}
-        keyExtractor={(item) => item.id.toString()}
-        renderItem={({ item }) => {
-          return (
-            <RepoCard
-              html_url={item.html_url}
-              name={item.name}
-              language={item.language}
-              description={item.description}
-              created_at={item.created_at}
-              pushed_at={item.pushed_at}
-            ></RepoCard>
-          );
-        }}
-      />
+
+      {repoInfo.length === 0 && (
+        <NoRepositoryText>
+          Usuário não tem repositórios públicos
+        </NoRepositoryText>
+      )}
+      {repoInfo.length > 0 && (
+        <FlatList
+          data={repoInfo}
+          keyExtractor={(item) => item.id.toString()}
+          renderItem={({ item }) => {
+            return (
+              <RepoCard
+                html_url={item.html_url}
+                name={item.name}
+                language={item.language}
+                description={item.description}
+                created_at={item.created_at}
+                pushed_at={item.pushed_at}
+              ></RepoCard>
+            );
+          }}
+        />
+      )}
     </UserRepoContainer>
   );
 }

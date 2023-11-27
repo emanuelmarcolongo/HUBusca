@@ -10,7 +10,11 @@ import {
 import { addSearchToHistory } from "../../../../../utils/async storage";
 import { GitHubUser } from "../../../../../utils/types/githubUserResponse";
 
-export default function SearchForm({ setUserData, setErrorMessage }: any) {
+export default function SearchForm({
+  setIsLoading,
+  setUserData,
+  setErrorMessage,
+}: any) {
   const [username, setUsername] = useState("");
 
   async function addUserToHistory(user: GitHubUser) {
@@ -19,6 +23,7 @@ export default function SearchForm({ setUserData, setErrorMessage }: any) {
 
   const searchUser = async () => {
     try {
+      setIsLoading(true);
       setUserData(null);
       const user = await fetchGitHubUser(username);
       setUserData(user);
@@ -32,6 +37,8 @@ export default function SearchForm({ setUserData, setErrorMessage }: any) {
         setErrorMessage("Erro desconhecido. Por favor, tente novamente.");
       }
       Keyboard.dismiss();
+    } finally {
+      setIsLoading(false);
     }
   };
 

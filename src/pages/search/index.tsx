@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TouchableOpacity, View } from "react-native";
+import { TouchableOpacity, View, ActivityIndicator } from "react-native";
 import { GitHubUser } from "../../../utils/types/githubUserResponse";
 import UserCard from "./components/userCard";
 import SearchForm from "./components/searchForm";
@@ -15,17 +15,22 @@ export type RootStackParamList = {
 export default function SearchPage() {
   const [userData, setUserData] = useState<GitHubUser | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
     <View>
       <Header></Header>
       <SearchForm
+        setIsLoading={setIsLoading}
         setUserData={setUserData}
         setErrorMessage={setErrorMessage}
       ></SearchForm>
-      {errorMessage && <ErrorMessage errorMessage={errorMessage} />}
-      {userData && (
+      {!isLoading && errorMessage && (
+        <ErrorMessage errorMessage={errorMessage} />
+      )}
+      {isLoading && <ActivityIndicator size="large" color={"#007bff"} />}
+      {!isLoading && userData && (
         <TouchableOpacity
           onPress={() => navigation.navigate("Usuario", { userData })}
         >

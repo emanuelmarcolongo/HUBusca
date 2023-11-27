@@ -12,3 +12,12 @@ export const UserRepoContainer = styled(View)`
   margin-bottom: 90px;
   margin-top: 40px;
 `;
+
+export const LoadingContainer = styled(View)`
+  margin-top: 50px;
+`;
+
+export const NoRepositoryText = styled(Text)`
+  text-align: center;
+  font-size: 16px;
+`;
