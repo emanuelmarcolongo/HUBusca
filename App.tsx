@@ -6,6 +6,7 @@ import SearchPage from "./src/pages/search";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import UserPage from "./src/pages/user";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -13,8 +14,24 @@ const Tab = createBottomTabNavigator();
 function Tabs() {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Search" component={SearchPage} />
-      <Tab.Screen name="History" component={HistoryPage} />
+      <Tab.Screen
+        name="Search"
+        component={SearchPage}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="search" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="History"
+        component={HistoryPage}
+        options={{
+          tabBarIcon: ({ color, size }) => (
+            <FontAwesome5 name="list" color={color} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 }
