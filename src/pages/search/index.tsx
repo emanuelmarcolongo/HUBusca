@@ -6,6 +6,7 @@ import SearchForm from "./components/searchForm";
 import ErrorMessage from "./components/errorMessage";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import Header from "./components/Header";
 
 export type RootStackParamList = {
   Usuario: { userData: GitHubUser };
@@ -18,6 +19,7 @@ export default function SearchPage() {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   return (
     <View>
+      <Header></Header>
       <SearchForm
         setUserData={setUserData}
         setErrorMessage={setErrorMessage}
