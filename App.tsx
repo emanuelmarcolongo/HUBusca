@@ -29,7 +29,13 @@ export default function App() {
         }}
       >
         <Stack.Screen name="Tabs" component={Tabs} />
-        <Stack.Screen name="User" component={UserPage} />
+        <Stack.Screen
+          name="User"
+          component={UserPage}
+          options={{
+            headerShown: true,
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
