@@ -42,7 +42,7 @@ export default function SearchForm({ setUserData, setErrorMessage }: any) {
         value={username}
         onChangeText={(text) => setUsername(text)}
       />
-      <SearchButton onPress={searchUser}>
+      <SearchButton onPress={searchUser} disabled={username.length === 0}>
         <SearchButtonText>Buscar</SearchButtonText>
       </SearchButton>
     </SearchContainer>

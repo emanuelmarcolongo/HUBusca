@@ -5,7 +5,7 @@ export const HistoryContainer = styled(View)`
   margin: 16px;
 `;
 export const ClearButton = styled(TouchableOpacity)`
-  background-color: #007bff;
+  background-color: ${(props) => (props.disabled ? "#CCCCCC" : "#007bff")};
   padding: 10px;
   border-radius: 8px;
   align-items: center;

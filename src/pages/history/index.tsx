@@ -37,7 +37,7 @@ export default function HistoryPage() {
   return (
     <View>
       <HistoryContainer>
-        <ClearButton onPress={clearHistory}>
+        <ClearButton onPress={clearHistory} disabled={history.length <= 0}>
           <ClearButtonText>Limpar Historico</ClearButtonText>
         </ClearButton>
       </HistoryContainer>

@@ -14,7 +14,8 @@ export const StyledTextInput = styled(TextInput)`
 `;
 
 export const SearchButton = styled(TouchableOpacity)`
-  background-color: #007bff;
+  background-color: ${(props) => (props.disabled ? "#CCCCCC" : "#007bff")};
+
   padding: 10px;
   border-radius: 8px;
   align-items: center;
