@@ -12,7 +12,7 @@ import { ClearButton, ClearButtonText, HistoryContainer } from "./styles";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 export type RootStackParamList = {
-  User: { userData: GitHubUser } | undefined;
+  Usuario: { userData: GitHubUser };
 };
 
 export default function HistoryPage() {
@@ -47,7 +47,7 @@ export default function HistoryPage() {
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
-              onPress={() => navigation.navigate("User", { userData: item })}
+              onPress={() => navigation.navigate("Usuario", { userData: item })}
             >
               <UserCard userData={item}></UserCard>
             </TouchableOpacity>

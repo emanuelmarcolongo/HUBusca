@@ -8,7 +8,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 
 export type RootStackParamList = {
-  User: { userData: GitHubUser } | undefined;
+  Usuario: { userData: GitHubUser };
 };
 
 export default function SearchPage() {
@@ -25,7 +25,7 @@ export default function SearchPage() {
       {errorMessage && <ErrorMessage errorMessage={errorMessage} />}
       {userData && (
         <TouchableOpacity
-          onPress={() => navigation.navigate("User", { userData })}
+          onPress={() => navigation.navigate("Usuario", { userData })}
         >
           <UserCard userData={userData}></UserCard>
         </TouchableOpacity>

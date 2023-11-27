@@ -15,7 +15,7 @@ function Tabs() {
   return (
     <Tab.Navigator>
       <Tab.Screen
-        name="Search"
+        name="Buscar"
         component={SearchPage}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -24,7 +24,7 @@ function Tabs() {
         }}
       />
       <Tab.Screen
-        name="History"
+        name="Histórico"
         component={HistoryPage}
         options={{
           tabBarIcon: ({ color, size }) => (
@@ -47,7 +47,7 @@ export default function App() {
       >
         <Stack.Screen name="Tabs" component={Tabs} />
         <Stack.Screen
-          name="User"
+          name="Usuario"
           component={UserPage}
           options={{
             headerShown: true,
