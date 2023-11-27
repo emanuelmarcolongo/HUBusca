@@ -5,7 +5,7 @@ export const RepoCardContainer = styled(TouchableOpacity)`
   background-color: #fff;
   padding: 16px;
   border-radius: 8px;
-  margin: 16px;
+  margin: 7px;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -30,4 +30,11 @@ export const RepoTitleInfo = styled(View)`
   display: flex;
   align-items: center;
   flex-direction: row;
+`;
+
+export const DescriptionText = styled(Text)`
+  margin-top: 5px;
+  margin-bottom: 5px;
+  max-width: 65%;
+  text-align: justify;
 `;

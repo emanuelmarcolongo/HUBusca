@@ -1,9 +1,10 @@
-import { Text, Linking, View } from "react-native";
+import { Text, Linking } from "react-native";
 import {
   RepoCardContainer,
   RepoInfoContainer,
   Title,
   RepoTitleInfo,
+  DescriptionText,
 } from "./styles";
 import dateFormat from "../../../../../utils/date format";
 import { FontAwesome5 } from "@expo/vector-icons";
@@ -73,7 +74,7 @@ export default function RepoCard({
             />
             <Text>Descrição</Text>
           </RepoTitleInfo>
-          <Text>{description}</Text>
+          <DescriptionText>{description}</DescriptionText>
         </RepoInfoContainer>
       ) : (
         ""
@@ -92,18 +93,6 @@ export default function RepoCard({
         <Text>{createdAt}</Text>
       </RepoInfoContainer>
 
-      <RepoInfoContainer>
-        <RepoTitleInfo>
-          <FontAwesome5
-            style={{ marginRight: 5 }}
-            name="calendar-alt"
-            color={"#000"}
-            size={12}
-          />
-          <Text>Criado em</Text>
-        </RepoTitleInfo>
-        <Text>{createdAt}</Text>
-      </RepoInfoContainer>
       <RepoInfoContainer>
         <RepoTitleInfo>
           <FontAwesome5

@@ -5,7 +5,7 @@ export const UserCardContainer = styled(View)`
   background-color: #fff;
   padding: 16px;
   border-radius: 8px;
-  margin: 16px;
+  margin: 5px;
   display: flex;
   flex-direction: row;
   align-items: center;
