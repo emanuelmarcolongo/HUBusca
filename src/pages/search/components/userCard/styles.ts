@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { View, Image } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
-export const UserCardContainer = styled(View)`
+export const UserCardContainer = styled(TouchableOpacity)`
   background-color: #fff;
   padding: 16px;
   border-radius: 8px;

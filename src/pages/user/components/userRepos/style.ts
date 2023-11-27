@@ -5,6 +5,7 @@ export const Title = styled(Text)`
   font-size: 20px;
   font-weight: bold;
   text-align: center;
+  margin-bottom: 20px;
 `;
 
 export const UserRepoContainer = styled(View)`

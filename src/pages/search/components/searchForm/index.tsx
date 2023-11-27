@@ -7,15 +7,25 @@ import {
   SearchContainer,
   StyledTextInput,
 } from "./styles";
+import {
+  addSearchToHistory,
+  getSearchHistory,
+} from "../../../../../utils/async storage";
+import { GitHubUser } from "../../../../../utils/types/githubUserResponse";
 
 export default function SearchForm({ setUserData, setErrorMessage }: any) {
   const [username, setUsername] = useState("");
+
+  async function addUserToHistory(user: GitHubUser) {
+    await addSearchToHistory(user);
+  }
 
   const searchUser = async () => {
     try {
       setUserData(null);
       const user = await fetchGitHubUser(username);
       setUserData(user);
+      addUserToHistory(user);
       setErrorMessage(null);
       Keyboard.dismiss();
     } catch (error) {

@@ -4,6 +4,7 @@ import { UserCardContainer, Avatar } from "./styles";
 
 type UserCardProps = {
   userData: GitHubUser;
+  onPress?: () => void;
 };
 export default function UserCard({ userData }: UserCardProps) {
   return (
