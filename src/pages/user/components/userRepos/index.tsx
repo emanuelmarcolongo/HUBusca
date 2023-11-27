@@ -3,6 +3,8 @@ import { fetchGitHubUserRepositories } from "../../services/githubRepositoriesSe
 import { useState } from "react";
 import { FlatList } from "react-native-gesture-handler";
 import { GitHubUserRepositoriesResponse } from "../../../../../utils/types/githubUserRepositoriesResponse";
+import RepoCard from "../repoCard";
+import { Title, UserRepoContainer } from "./style";
 interface UserRepositoriesProps {
   username?: string;
   setErrorMessage: any;
@@ -40,18 +42,24 @@ export default function UserRepos({
   searchUserRepos();
 
   return (
-    <View>
+    <UserRepoContainer>
+      <Title>Repositórios: </Title>
       <FlatList
         data={repoInfo}
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => {
           return (
-            <Text>
-              <Text>Repositorio: {item?.name}</Text>
-            </Text>
+            <RepoCard
+              html_url={item.html_url}
+              name={item.name}
+              language={item.language}
+              description={item.description}
+              created_at={item.created_at}
+              pushed_at={item.pushed_at}
+            ></RepoCard>
           );
         }}
       />
-    </View>
+    </UserRepoContainer>
   );
 }
