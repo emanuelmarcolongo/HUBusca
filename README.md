@@ -7,6 +7,14 @@
   <img alt="Expo" src="https://img.shields.io/badge/Expo-1B1F23?style=for-the-badge&logo=expo&logoColor=white" />
 </p>
 
+# Preview
+ 
+
+<p align="center">
+  <img alt="Project Gif" src="https://github.com/emanuelmarcolongo/git-explore/blob/master/assets/projectView.gif?raw=true" />
+</p>
+
+
 <p align="center">
 Este é um aplicativo React Native desenvolvido para facilitar a busca e visualização de informações de usuários do GitHub.
   O aplicativo permite buscar usuários pelo nome de usuário, exibe detalhes do perfil, lista de repositórios e informações adicionais.
@@ -37,12 +45,6 @@ Este é um aplicativo React Native desenvolvido para facilitar a busca e visuali
    - Axios para requisições à API do GitHub
    - Styled-components para estilização
 
-# Preview
- Dá uma conferida no funcionamento do app.
-
-<p align="center">
-  <img alt="Project Gif" src="https://raw.githubusercontent.com/emanuelmarcolongo/git-explore/141e2bfc1dfb89ac721ce72cb6c5e8b5831668c6/assets/projectView.gif" />
-</p>
 
 # Como Rodar o Projeto
 
