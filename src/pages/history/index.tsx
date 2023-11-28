@@ -35,12 +35,11 @@ export default function HistoryPage() {
   }
 
   return (
-    <View>
-      <HistoryContainer>
-        <ClearButton onPress={clearHistory} disabled={history.length <= 0}>
-          <ClearButtonText>Limpar Historico</ClearButtonText>
-        </ClearButton>
-      </HistoryContainer>
+    <HistoryContainer>
+      <ClearButton onPress={clearHistory} disabled={history.length <= 0}>
+        <ClearButtonText>Limpar Historico</ClearButtonText>
+      </ClearButton>
+
       <FlatList
         data={history}
         keyExtractor={(item) => item.id.toString()}
@@ -54,6 +53,6 @@ export default function HistoryPage() {
           );
         }}
       />
-    </View>
+    </HistoryContainer>
   );
 }

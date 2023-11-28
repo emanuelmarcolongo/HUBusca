@@ -29,6 +29,7 @@ export default function SearchForm({
       setUserData(user);
       addUserToHistory(user);
       setErrorMessage(null);
+      setUsername("");
       Keyboard.dismiss();
     } catch (error) {
       if (error instanceof Error) {

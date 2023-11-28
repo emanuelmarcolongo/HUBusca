@@ -55,7 +55,7 @@ export default function UserRepos({
   if (isLoading) {
     return (
       <LoadingContainer>
-        <ActivityIndicator size="large" color={"#007bff"} />
+        <ActivityIndicator size="large" color={"#000"} />
       </LoadingContainer>
     );
   }

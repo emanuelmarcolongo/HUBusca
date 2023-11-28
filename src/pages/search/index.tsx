@@ -29,7 +29,7 @@ export default function SearchPage() {
       {!isLoading && errorMessage && (
         <ErrorMessage errorMessage={errorMessage} />
       )}
-      {isLoading && <ActivityIndicator size="large" color={"#007bff"} />}
+      {isLoading && <ActivityIndicator size="large" color={"#000"} />}
       {!isLoading && userData && (
         <TouchableOpacity
           onPress={() => navigation.navigate("Usuario", { userData })}
