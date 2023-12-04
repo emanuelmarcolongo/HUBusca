@@ -57,8 +57,8 @@ Siga os passos abaixo para rodar o projeto localmente em sua máquina.
 
 ## Clonar o Repositório
 ```bash
-git clone https://github.com/emanuelmarcolongo/git-explore/
-cd git-explore
+git clone https://github.com/emanuelmarcolongo/hubusca/
+cd hubusca
 ```
 
 ## Instalar as Dependências
